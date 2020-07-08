@@ -46,7 +46,7 @@ export class Tab2Page {
     if (this.ponto) {
       return;
     }
-    // Soma a variável "calculo" o "." (Insere o ponto na conta)
+    // Soma a variável "calculo" o "." (Insere o ponto no calculo)
     this.calculo += '.';
     // Declaração da variável "ponto" com o valor "true" (Proíbe inserir outro ponto)
     this.ponto = true;
@@ -57,7 +57,7 @@ export class Tab2Page {
     // Se o resultado for igual a "true" (Se ele tiver algum valor)
     if (this.r) {
       // Definiu a variável "calculo" o valor da variável "r" transformada
-      // de Number para String (Insere o valor do resultado na conta para continuar)
+      // de Number para String (Insere o valor do resultado no calculo para continuar)
       this.calculo = this.r.toString();
       // Definiu a variável "r" o valor de "null" (Limpa o Resultado)
       this.r = null;
@@ -69,16 +69,16 @@ export class Tab2Page {
     if (this.op.indexOf(ultimo) > -1) {
       return;
     }
-    // Soma a variável "calculo" com o operador passado na função (Insere operador na conta)
+    // Soma a variável "calculo" com o operador passado na função (Insere operador no calculo)
     this.calculo += op;
     // Definiu a variável "ponto" o valor "false" (Faz possível a inserção de outro ponto)
     this.ponto = false;
   }
 
   public apagarTudo() {
-    // Definiu a variável "conta" o valor de '' (Limpa a conta)
+    // Definiu a variável "calculo o valor de '' (Limpa o calculo)
     this.calculo = '';
-    // Definiu a variável "conta" o valor de "null" (Limpa o resultado)
+    // Definiu a variável "calculo" o valor de "null" (Limpa o resultado)
     this.r = null;
     // Definiu a variável "ponto" o valor "false" (Faz possível a inserção de outro ponto)
     this.ponto = false;
@@ -86,7 +86,7 @@ export class Tab2Page {
 
   // Função para apagar o , ela recebe uma string (operador) passada previamente na chamada da função
   public apagarUltimo(x: string) {
-    // Cria a constante "ultimo" e definiu a ela o valor do último caractere da varíavel conta
+    // Cria a constante "ultimo" e definiu a ela o valor do último caractere da varíavel calculo
     const ultimo = this.calculo.slice(-1);
     // Se a constante "ultimo" for igual a '.'
     if (ultimo == '.') {
@@ -99,7 +99,7 @@ export class Tab2Page {
 
   public calcularResultado() {
     try {
-      // Definiu a variável "r" com o valor resultante da função "evaluate" passando a conta (Mostra o resultado)
+      // Definiu a variável "r" com o valor resultante da função "evaluate" passando o calculo (Mostra o resultado)
       this.r = evaluate(this.calculo);
       // Caso não seja possível, recebe o erro...
     } catch (e) {
